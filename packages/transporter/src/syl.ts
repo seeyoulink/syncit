@@ -22,7 +22,7 @@ export class SylTransporter<T> implements Transporter<T> {
   constructor(options: { sylrtc: any, username: string }) {
     const { sylrtc, username } = options;
     this.sylrtc = sylrtc;
-    this.username = username;
+    this.username = username || '';
     
     const self = this;
 
@@ -48,6 +48,10 @@ export class SylTransporter<T> implements Transporter<T> {
 
   login() {
     return Promise.resolve(true);
+  }
+
+  setUsername(username: string) {
+    this.username = username;
   }
 
   setItem(params: { event: TransporterEvents; payload?: unknown }) {
