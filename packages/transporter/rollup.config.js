@@ -51,7 +51,7 @@ export default [
       },
     ],
   },
-  ...['base', 'local-storage', 'peerjs', 'agora-rtm'].map(name => ({
+  ...['base', 'local-storage', /*'peerjs', 'agora-rtm'*/ 'syl'].map(name => ({
     ...sharedConfig,
     input: `src/${name}.ts`,
     output: [
