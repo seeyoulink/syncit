@@ -31,7 +31,8 @@ export class SylTransporter<T> implements Transporter<T> {
         msg.data === 'init_cobrowsing' ||
         msg.data === 'accepted_cobrowsing' ||
         msg.data === 'rejected_cobrowsing' ||
-        msg.data === 'stop_cobrowsing'
+        msg.data === 'stop_cobrowsing' ||
+        msg.data === 'cancel_cobrowsing'
       ) {
         return;
       }
