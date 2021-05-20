@@ -5,7 +5,7 @@ import {
   TransporterEventHandler,
 } from './base';
 
-export class SylTransporter<T> implements Transporter<T> {
+export class TlrTransporter<T> implements Transporter<T> {
   handlers: Record<TransporterEvents, Array<TransporterEventHandler>> = {
     [TransporterEvents.SourceReady]: [],
     [TransporterEvents.MirrorReady]: [],
@@ -16,17 +16,17 @@ export class SylTransporter<T> implements Transporter<T> {
     [TransporterEvents.RemoteControl]: [],
   };
   
-  sylrtc: any;
+  tlr: any;
   username: string;
 
-  constructor(options: { sylrtc: any, username: string }) {
-    const { sylrtc, username } = options;
-    this.sylrtc = sylrtc;
+  constructor(options: { tlr: any, username: string }) {
+    const { tlr, username } = options;
+    this.tlr = tlr;
     this.username = username || '';
     
     const self = this;
 
-    this.sylrtc.on('syncitmessage', (msg: any) => {
+    this.tlr.on('syncitmessage', (msg: any) => {
       if (
         msg.data === 'init_cobrowsing' ||
         msg.data === 'accepted_cobrowsing' ||
@@ -62,7 +62,7 @@ export class SylTransporter<T> implements Transporter<T> {
       data: JSON.stringify(params)
     };
 
-    this.sylrtc.tools.sendPeerMessage(msgParams);
+    this.tlr.tools.sendPeerMessage(msgParams);
   }
 
   sendSourceReady() {
