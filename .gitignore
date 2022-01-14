@@ -23,3 +23,7 @@ packages/ui/public/build
 # website
 
 !website/*
+.DS_Store
+packages/.DS_Store
+packages/core/.DS_Store
+packages/transporter/.DS_Store
